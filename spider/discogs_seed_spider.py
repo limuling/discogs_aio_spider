@@ -6,8 +6,8 @@
 # 2000-2009
 import asyncio
 import sys
-sys.path.append("../common/")
-from base_crawler import Crawler
+sys.path.append("..")
+from common.base_crawler import Crawler
 from collections import deque
 from itertools import product
 import sys

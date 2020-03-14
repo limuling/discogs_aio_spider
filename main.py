@@ -4,7 +4,7 @@
 # @文件名 : main.py
 # @公众号: Python学习开发
 import sys
-sys.path.append(".spider")
+sys.path.append("..")
 from spider import step1, step2, step3
 import asyncio
 import threading
