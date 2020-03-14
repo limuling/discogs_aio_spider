@@ -4,16 +4,16 @@
 # @File : discogs_seed_spider.py
 # @Software: PyCharm
 # 2000-2009
-import asyncio
 import sys
+
 sys.path.append("..")
+
+import asyncio
 from common.base_crawler import Crawler
 from collections import deque
 from itertools import product
 import sys
 from dataclasses import dataclass
-from itertools import islice
-import time
 
 try:
     import uvloop
