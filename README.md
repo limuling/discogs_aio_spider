@@ -2,6 +2,8 @@
 # 基于Asyncio+Aiohttp+Motor+Aio-Pika+Aioredis的国外黑胶唱片信息网站Discogs内容的抓取。
 # 使用版本Python3.8
 
+
+### 项目流程图 
 ![项目流程图](discogs项目流程图.jpg)
 
 
