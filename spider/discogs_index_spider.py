@@ -5,9 +5,9 @@
 # @Software: PyCharm
 # 2000-2009
 import asyncio
-
+import sys 
 import msgpack
-
+sys.path.append("..")
 from util import MotorOperation
 from loguru import logger as crawler
 import datetime

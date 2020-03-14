@@ -4,6 +4,8 @@
 # @File : discogs_details_spider.py
 # @Software: PyCharm
 import asyncio
+import sys
+sys.path.append("..")
 from util import aio_retry
 import aiofiles
 from loguru import logger as  crawler

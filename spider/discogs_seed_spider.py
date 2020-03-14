@@ -5,7 +5,9 @@
 # @Software: PyCharm
 # 2000-2009
 import asyncio
-from common.base_crawler import Crawler
+import sys
+sys.path.append("../common/")
+from base_crawler import Crawler
 from collections import deque
 from itertools import product
 import sys

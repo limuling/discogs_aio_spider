@@ -3,7 +3,8 @@
 # @作者 : 陈祥安
 # @文件名 : main.py
 # @公众号: Python学习开发
-
+import sys
+sys.path.append(".spider")
 from spider import step1, step2, step3
 import asyncio
 import threading

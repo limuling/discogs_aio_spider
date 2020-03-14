@@ -4,11 +4,12 @@
 # @File : base_crawler.py
 # @Software: PyCharm
 # @公众号: Python学习开发
-
+import sys
 import asyncio
 import aiohttp
 from loguru import logger as crawler
 import async_timeout
+sys.path.append("..")
 from util import aio_retry
 from lxml import html
 from util import RabbitMqPool, MongoPool, RedisPool
