@@ -20,7 +20,7 @@ class RetryTimeout(Exception):
 
 def aio_retry(**kwargs):
     max_sleep_time: int = kwargs.pop("max", None)
-    min_sleep_time: int = kwargs.pop("min", 0.01)
+    min_sleep_time: int = kwargs.pop("min", 0)
     attempts: int = kwargs.pop("attempts", 3)
     error: bool = kwargs.pop("error", False)
 
@@ -28,7 +28,6 @@ def aio_retry(**kwargs):
         @wraps(func)
         async def decorator(*args, **_kwargs):
             retry_count = 1
-            sleep_time = min_sleep_time
             error_info = ""
             while True:
                 if retry_count > attempts:
@@ -43,11 +42,11 @@ def aio_retry(**kwargs):
                 except Exception as e:
                     if retry_count == retry_count:
                         error_info = f"{traceback.format_exc()}"
-                finally:
-                    retry_count += 1
-                    if max_sleep_time:
-                        sleep_time = random.randint(min_sleep_time, max_sleep_time)
-                    await asyncio.sleep(sleep_time)
+                    else:
+                        retry_count += 1
+                        if max_sleep_time:
+                            sleep_time = random.randint(min_sleep_time, max_sleep_time)
+                            await asyncio.sleep(sleep_time)
 
         return decorator
 
