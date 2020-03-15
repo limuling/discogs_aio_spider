@@ -19,8 +19,8 @@ class RetryTimeout(Exception):
 
 
 def aio_retry(**kwargs):
-    max_sleep_time: int = kwargs.pop("max", 0)
-    min_sleep_time: int = kwargs.pop("min", 0)
+    max_sleep_time: int = kwargs.pop("max", None)
+    min_sleep_time: int = kwargs.pop("min", 0.01)
     attempts: int = kwargs.pop("attempts", 3)
     error: bool = kwargs.pop("error", False)
 
@@ -28,7 +28,7 @@ def aio_retry(**kwargs):
         @wraps(func)
         async def decorator(*args, **_kwargs):
             retry_count = 1
-            sleep_time = 1
+            sleep_time = min_sleep_time
             error_info = ""
             while True:
                 if retry_count > attempts:
