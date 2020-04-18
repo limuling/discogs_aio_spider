@@ -40,7 +40,7 @@ def aio_retry(**kwargs):
                     result = await func(*args, **_kwargs)
                     return result
                 except Exception as e:
-                    if retry_count == retry_count:
+                    if retry_count == attempts:
                         error_info = f"{traceback.format_exc()}"
                     else:
                         retry_count += 1
